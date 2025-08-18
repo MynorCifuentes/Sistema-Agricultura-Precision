@@ -115,6 +115,34 @@ Se deberá utilizar la herramienta Graphviz para crear un grafo que muestre de m
 </camposAgricolas>
 ```
 
+La solución deberá contar con un menú en consola, con las siguientes opciones. 
+
+* Cargar archivo
+* Procesar archivo 
+* Escribir archivo de salida
+* Mostrar datos del estudiante
+* Generar gráfica
+* Salida
+
+__1.Cargar archivo__: Esa opición solicitará la ruta y el nombre del archivo a cargar
+
+Opción Cargar archivo:
+* Ingrese la ruta del archivo
+* Ingrese el nombre del archivo
+
+__2.Procesar el archivo__: Esta opción será la encargada de procesar la información cargada en memoria, durante el proceso se deben ir mostrando mensajes al usuario para tener el conocimiento de lo que está pasando en el sistema
+* Cargando campo agrícola 01
+* Creando estación base 01
+
+__3.Escribir Archivo de salida__: Esta opción será la encarga de escribir el archivo con la salida específica. 
+* Ingrese la ruta del archivo
+* Ingrese el nombre del archivo
+
+__4.Mostrar datos del estudiante__: Mostrar los datos del estudiante, carné, nombre, curso, semestre y enlace de acceso a documentación
+
+__5.Generar gráfica__: El programa deberá permitir que el usuario elija un campo agrícola ingresado en el archivo de entrada, luego debe solicitar si se desea graficar la matriz de frecuencia, la matriz de patrones o la matriz reducia de dicho campop agrícola.
+
+
 
 
 
