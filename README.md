@@ -1,4 +1,4 @@
-# Gestión de la agricultura de la precisión
+# Gestión de la agricultura de precisión
 
 La agricultura de la precisión considera la variabilidad espacial y temporal en los campos de cultivo, utiliza tecnologías avanzadas como GPS, GNSS, SIG, sensores, drones, imágenes saterlitales y máquinas inteligentes. 
 
