@@ -1,10 +1,59 @@
-def MenuPrincipal():
-    print("\n Bienvenido al menú principal del Gestor para la Agricultura de Precisión")
-    print("Selecione una opción")
-    print("1] Cargar Archivo")
-    print("2] Procesar Archivo")
-    print("3] Escribir Archivo de Salida")
-    print("4] Mostrar datos del Estudiante")
-    print("5] Generar Gráfica")
-    print("6] Salir")
+class Main:
+    def __init__(self):
+        pass  
+       
+    def menu_principal(self):
+        print("\n Bienvenido al menú principal del Gestor para la Agricultura de Precisión")
+        print("1] Cargar Archivo")
+        print("2] Procesar Archivo")
+        print("3] Escribir Archivo de Salida")
+        print("4] Mostrar datos del Estudiante")
+        print("5] Generar Gráfica")
+        print("6] Salir")
+        # opcion_principal = input()
+        # return opcion_principal
     
+    def menu_cargar_archivo(self):
+        print("\n Cargar Archivo")
+        print("Ingrese la ruta del archivo a cargar:")
+        print("Regresar al menú principal")
+        # opcion_cargar = input()
+        # return opcion_cargar
+
+    def menu_archivo_salida(self):
+        print("\n Archivo de Salida")
+        print("Ingrese la ruta donde desea guardar el archivo")
+        print("Ingrese el nombre con el que le quiere guardar el archivo")
+        
+    def procesar_archivo():
+        pass
+
+    def mostrar_datos():
+        pass
+
+    def generar_grafica():
+        pass
+
+
+def main():
+    gestor = Main()
+    gestor.menu_principal()
+    
+    while True:
+        opcion = input("Ingrese una opcion ")
+        if opcion == '1':
+            gestor.menu_cargar_archivo()
+        elif opcion == '2':
+            gestor.procesar_archivo()
+        elif opcion == '3':
+            gestor.menu_archivo_salida()
+        elif opcion == '4':
+            gestor.mostrar_datos()
+        elif opcion == '5':
+            gestor.generar_grafica()
+        elif opcion == '6':
+            print("Gracias por utilizar el Gestor")
+            break
+
+if __name__ == "__main__":
+    main()
