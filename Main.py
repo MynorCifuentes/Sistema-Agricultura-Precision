@@ -1,7 +1,7 @@
 class Main:
     def __init__(self):
         pass  
-       
+
     def menu_principal(self):
         print("\n Bienvenido al menú principal del Gestor para la Agricultura de Precisión")
         print("1] Cargar Archivo")
@@ -10,35 +10,33 @@ class Main:
         print("4] Mostrar datos del Estudiante")
         print("5] Generar Gráfica")
         print("6] Salir")
-        # opcion_principal = input()
-        # return opcion_principal
+
     
     def menu_cargar_archivo(self):
         print("\n Cargar Archivo")
-        print("Ingrese la ruta del archivo a cargar:")
-        print("Regresar al menú principal")
-        # opcion_cargar = input()
-        # return opcion_cargar
+        print("1] Ingrese la ruta del archivo a cargar:")
+        print("2] Regresar al menú principal")
+
 
     def menu_archivo_salida(self):
         print("\n Archivo de Salida")
-        print("Ingrese la ruta donde desea guardar el archivo")
-        print("Ingrese el nombre con el que le quiere guardar el archivo")
-        
-    def procesar_archivo():
+        print("1] Ingrese la ruta donde desea guardar el archivo")
+        print("2] Ingrese el nombre con el que le quiere guardar el archivo")
+
+    def procesar_archivo(self):
         pass
 
-    def mostrar_datos():
+    def mostrar_datos(self):
         pass
 
-    def generar_grafica():
+    def generar_grafica(self):
         pass
 
 
 def main():
     gestor = Main()
     gestor.menu_principal()
-    
+
     while True:
         opcion = input("Ingrese una opcion ")
         if opcion == '1':
