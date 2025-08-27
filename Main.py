@@ -4,6 +4,7 @@ from Estructuras.ListaSimple import ListaSimple
  
 class Main:
     def __init__(self):
+
         pass
 
     def menu_principal(self):
@@ -38,9 +39,6 @@ class Main:
         
         newList.recorrer()
         newList.graficar("simple1")
-        
-        
-        pass
 
     def mostrar_datos(self):
         pass
