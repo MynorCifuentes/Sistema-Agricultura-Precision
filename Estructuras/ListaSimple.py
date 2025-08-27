@@ -25,6 +25,18 @@ class ListaSimple:
         if self.ultimo is None:         # Si la lista estaba vacía, actualiza último
             self.ultimo = nuevo_cliente
     
+    def agregar(self, nombre, cui, saldo, edad):
+        nuevo_cliente = Cliente(nombre, cui, saldo, edad)
+        if not self.primero:
+            self.primero = nuevo_cliente
+        else:
+            temp = self.primero
+            while temp.siguiente is not None:
+                temp = temp.siguiente
+            temp.siguiente = nuevo_cliente
+                
+
+    
     def recorrer(self):
         temp = self.primero
         while temp != None:
@@ -57,7 +69,7 @@ class ListaSimple:
     def graficar(self, name):
         temp = self.primero
         contador = 0
-        file = open(name+".dot", "w")
+        file = open("Salidas/"+name+".dot", "w")
         cadena = "digraph G{ \n"
         cadena += "rankdir=LR\n"
         cadena += "node[ shape = record, style=\"filled\", color=\"black\", fillcolor=\"yellow\"];\n"
@@ -70,5 +82,12 @@ class ListaSimple:
         cadena += "}"
         file.write(cadena)
         file.close()
-        os.system("dot -Tpng "+name+".dot -o "+name+".png")
+        os.makedirs("Salidas", exist_ok=True)
+        dot_path = os.path.join("Salidas", name + ".dot")
+        png_path = os.path.join("Salidas", name + ".png")
+        
+        with open(dot_path, "w") as file:
+            file.write(cadena)
+        # Genera el PNG (requiere Graphviz instalado)
+        os.system(f'dot -Tpng "{dot_path}" -o "{png_path}"')
  

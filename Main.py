@@ -31,10 +31,10 @@ class Main:
     def procesar_archivo(self):
         
         newList = ListaSimple()
-        newList.agregar_primero("Gabriela",1,1000, 22)
-        newList.agregar_primero("Lulu",2,1500, 45)
-        newList.agregar_primero("Daniel",3,850, 30)
-        newList.agregar_primero("Oto",4, 375, 24)
+        newList.agregar("Gabriela",1,1000, 22)
+        newList.agregar("Lulu",2,1500, 45)
+        newList.agregar("Daniel",3,850, 30)
+        newList.agregar("Oto",4, 375, 24)
         
         newList.recorrer()
         newList.graficar("simple1")
