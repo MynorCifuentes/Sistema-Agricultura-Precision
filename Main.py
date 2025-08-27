@@ -1,8 +1,10 @@
 import xml.etree.ElementTree as ET  # Libreria ElementTree
 from Gestor import Gestor
-
+from Estructuras.ListaSimple import ListaSimple 
+ 
 class Main:
     def __init__(self):
+
         pass
 
     def menu_principal(self):
@@ -28,7 +30,15 @@ class Main:
         print("----------------------------------------")
 
     def procesar_archivo(self):
-        pass
+        
+        newList = ListaSimple()
+        newList.agregar("Gabriela",1,1000, 22)
+        newList.agregar("Lulu",2,1500, 45)
+        newList.agregar("Daniel",3,850, 30)
+        newList.agregar("Oto",4, 375, 24)
+        
+        newList.recorrer()
+        newList.graficar("simple1")
 
     def mostrar_datos(self):
         pass
@@ -36,14 +46,6 @@ class Main:
     def generar_grafica(self):
         pass
     
-    
-
-
-
-            
-        
-            
-
 def main():
     gestor = Main()
     gestor.menu_principal()

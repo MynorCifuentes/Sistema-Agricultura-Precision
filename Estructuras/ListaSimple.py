@@ -1,0 +1,93 @@
+import os
+from .Nodo import Cliente 
+
+class ListaSimple:
+    def __init__(self):
+        self.primero = None
+        self.ultimo = None
+    
+    def esta_vacia(self):
+        return self.primero == self.ultimo == None
+    
+    def agregar_ultimo(self, nombre, cui, saldo, edad):
+        nuevo_cliente = Cliente(nombre, cui, saldo, edad)
+        if self.esta_vacia() == True:
+            self.primero = self.ultimo = nuevo_cliente
+        else:
+            temp = nuevo_cliente
+            self.ultimo.siguiente = temp
+            self.ultimo = temp
+            
+    def agregar_primero(self, nombre, cui, saldo, edad):
+        nuevo_cliente = Cliente(nombre, cui, saldo, edad)
+        nuevo_cliente.siguiente = self.primero  # El nuevo nodo apunta al anterior primero
+        self.primero = nuevo_cliente            # El nuevo nodo ahora es el primero
+        if self.ultimo is None:         # Si la lista estaba vacía, actualiza último
+            self.ultimo = nuevo_cliente
+    
+    def agregar(self, nombre, cui, saldo, edad):
+        nuevo_cliente = Cliente(nombre, cui, saldo, edad)
+        if not self.primero:
+            self.primero = nuevo_cliente
+        else:
+            temp = self.primero
+            while temp.siguiente is not None:
+                temp = temp.siguiente
+            temp.siguiente = nuevo_cliente
+                
+
+    
+    def recorrer(self):
+        temp = self.primero
+        while temp != None:
+            print(temp.cui, temp.nombre, temp.saldo, temp.edad)
+            temp = temp.siguiente
+            
+    def eliminar(self, cui):
+        temp1 = self.primero
+        temp2 = None
+        while temp1 != None:
+            if temp1.cui == cui:
+                if temp1 == self.primero:
+                    temp2 = self.primero
+                    temp1 = temp1.siguiente
+                    self.primero = temp1
+                    temp2.siguiente = None
+                    break
+                elif temp1 == self.ultimo: 
+                    self.ultimo = temp2
+                    temp2.siguiente = None
+                    break
+                else : 
+                    temp2.siguiente = temp1.siguiente
+                    temp1.siguiente = None
+                    break
+            else:
+                temp2 = temp1
+                temp1 = temp1.siguiente
+                
+    def graficar(self, name):
+        temp = self.primero
+        contador = 0
+        file = open("Salidas/"+name+".dot", "w")
+        cadena = "digraph G{ \n"
+        cadena += "rankdir=LR\n"
+        cadena += "node[ shape = record, style=\"filled\", color=\"black\", fillcolor=\"yellow\"];\n"
+        while temp != None:
+            cadena += f"Nodo{contador}[label = \"{temp.cui} | {temp.nombre} | {temp.saldo} | {temp.edad} \"]\n"
+            if temp != self.primero:
+                cadena += f"Nodo{contador-1} -> Nodo{contador};\n"
+            temp = temp.siguiente
+            contador += 1
+        cadena += "}"
+        file.write(cadena)
+        file.close()
+        os.makedirs("Salidas", exist_ok=True)
+        dot_path = os.path.join("Salidas", name + ".dot")
+        png_path = os.path.join("Salidas", name + ".png")
+        
+        with open(dot_path, "w") as file:
+            file.write(cadena)
+        # Genera el PNG (requiere Graphviz instalado)
+        os.system(f'dot -Tpng "{dot_path}" -o "{png_path}"')
+ 
