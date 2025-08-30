@@ -41,7 +41,7 @@ class Gestor:
                 for frecuencia_elem in sensoresT_elem.findall("frecuencia"):
                     id_estacionT = frecuencia_elem.get("idEstacion") 
                     #Frecuencia de las estaciones para los sensores de suelo
-                    frecuenciaT = int(sensoresS_elem.find("frecuencia").text)   
+                    frecuenciaT = int(sensoresT_elem.find("frecuencia").text)   
                     print("El id de la estacion para el Sensor de cultivo: ", id_estacionT, "con una frecuencia de: ",frecuenciaT)
                     
     def exportar_archivo(self):

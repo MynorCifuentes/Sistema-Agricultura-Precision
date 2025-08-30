@@ -1,6 +1,5 @@
-import xml.etree.ElementTree as ET  # Libreria ElementTree
 from Gestor import Gestor
-from Estructuras.ListaSimple import ListaSimple 
+import os
  
 class Main:
     def __init__(self):
@@ -30,16 +29,7 @@ class Main:
         print("----------------------------------------")
 
     def procesar_archivo(self):
-        
-        newList = ListaSimple()
-        newList.agregar("Gabriela",1,1000, 22)
-        newList.agregar("Lulu",2,1500, 45)
-        newList.agregar("Daniel",3,850, 30)
-        newList.agregar("Oto",4, 375, 24)
-        
-        newList.recorrer()
-        newList.graficar("simple1")
-
+        pass
     def mostrar_datos(self):
         pass
 
@@ -54,8 +44,9 @@ def main():
     while True:
         opcion = input("Seleccione una opción: ")
         if opcion == '1':
-            miGestor.leer_archivo("/home/mynor/Documents/IPC2_Proyecto1_201318644/Entradas/Entrada1.xml")
-            # gestor.menu_cargar_archivo()
+            ruta_archivo = os.path.join("Entradas", "Entrada1.xml")
+            miGestor.leer_archivo(ruta_archivo)
+            gestor.menu_principal()
         elif opcion == '2':
             gestor.procesar_archivo()
         elif opcion == '3':
