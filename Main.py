@@ -1,66 +1,45 @@
 from Gestor import Gestor
 import os
- 
+
 class Main:
     def __init__(self):
-
-        pass
+        self.gestor = Gestor()
 
     def menu_principal(self):
         print("\n---------- GESTOR PARA LA AGRICULTURA DE PRECISIÓN ----------")
-        print("  1. Cargar archivo")
-        print("  2. Procesar archivo")
-        print("  3. Escribir archivo de salida")
+        print("  1. Cargar archivo XML")
+        print("  2. Mostrar matrices")
+        print("  3. Graficar matriz")
         print("  4. Mostrar datos del estudiante")
-        print("  5. Generar gráfica")
-        print("  6. Salir")
-        print("---------------------------------------------------------------")
+        print("  5. Salir")
+        print("-------------------------------------------------------------")
 
-    def menu_cargar_archivo(self):
-        print("\n---------- CARGAR ARCHIVO ----------")
-        print("  1. Ingrese la ruta del archivo a cargar")
-        print("  2. Regresar al menú principal")
-        print("------------------------------------")
-
-    def menu_archivo_salida(self):
-        print("\n---------- ARCHIVO DE SALIDA ----------")
-        print("  1. Ingrese la ruta donde desea guardar el archivo")
-        print("  2. Ingrese el nombre con el que desea guardar el archivo")
-        print("----------------------------------------")
-
-    def procesar_archivo(self):
-        pass
-    def mostrar_datos(self):
-        pass
-
-    def generar_grafica(self):
-        pass
-    
-def main():
-    gestor = Main()
-    gestor.menu_principal()
-    miGestor = Gestor()
-
-    while True:
-        opcion = input("Seleccione una opción: ")
-        if opcion == '1':
-            ruta_archivo = os.path.join("Entradas", "Entrada1.xml")
-            miGestor.leer_archivo(ruta_archivo)
-            gestor.menu_principal()
-        elif opcion == '2':
-            gestor.procesar_archivo()
-        elif opcion == '3':
-            gestor.menu_archivo_salida()
-        elif opcion == '4':
-            gestor.mostrar_datos()
-        elif opcion == '5':
-            gestor.generar_grafica()
-        elif opcion == '6':
-            print("\nGracias por utilizar el gestor.")
-            break
-        else:
-            print("\nOpción no válida. Intente nuevamente.")
-        print()
+    def loop(self):
+        while True:
+            self.menu_principal()
+            opcion = input("Seleccione una opción: ").strip()
+            if opcion == '1':
+                ruta = input("Ruta del XML (ENTER para Entradas/Entrada1.xml): ").strip()
+                if ruta == "":
+                    ruta = os.path.join("Entradas", "Entrada1.xml")
+                self.gestor.leer_archivo(ruta)
+            elif opcion == '2':
+                self.gestor.imprimir_todo()
+            elif opcion == '3':
+                id_campo = input("Ingrese ID del campo (ej: 02): ").strip()
+                tipo = input("Tipo de matriz (suelo/cultivo): ").strip().lower()
+                self.gestor.graficar_matriz(id_campo, tipo)
+            elif opcion == '4':
+                print("Mynor Alejandro Cifuentes")
+                print("Carné: 201318644")
+                print("Curso: IPC2")
+                print("https://mynorcifuentes.github.io/")
+            elif opcion == '5':
+                print("Gracias por utilizar el gestor.")
+                break
+            else:
+                print("Opción inválida.")
 
 if __name__ == "__main__":
-    main()
+    app = Main()
+    app.loop()
